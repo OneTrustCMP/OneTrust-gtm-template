@@ -55,10 +55,12 @@ ___TEMPLATE_PARAMETERS___
             "args": [
               "^(\\w{8})-(\\w{4})-(\\w{4})-(\\w{4})-(\\w{12})(?:[a-z\\-]{5})?$"
             ]
+          },
+          {
+            "type": "NON_EMPTY"
           }
         ],
-        "alwaysInSummary": true,
-        "notSetText": "You must enter a domain ID"
+        "alwaysInSummary": true
       },
       {
         "type": "SELECT",
@@ -139,6 +141,14 @@ ___TEMPLATE_PARAMETERS___
             {
               "value": "security_storage",
               "displayValue": "security_storage"
+            },
+            {
+              "value": "ad_user_data",
+              "displayValue": "ad_user_data"
+            },
+            {
+              "value": "ad_user_personalization",
+              "displayValue": "ad_user_personalization"
             }
           ],
           "simpleValueType": true
@@ -153,7 +163,7 @@ ___TEMPLATE_PARAMETERS___
           "simpleValueType": true,
           "valueHint": "eg. C0002",
           "enablingConditions": [],
-          "help": "Leave this blank if you have chosen to map the categories in OneTrust instead of in Google Tag Manager"
+          "help": "Leave this blank if you have chosen to map the categories in OneTrust instead of in Google Tag Manager. Values set here will be ignored if you\u0027ve already configured them in OneTrust."
         },
         "isUnique": false
       },
@@ -161,7 +171,7 @@ ___TEMPLATE_PARAMETERS___
         "param": {
           "type": "RADIO",
           "name": "defaultConsent",
-          "displayName": "Default Consent",
+          "displayName": "Global Default Consent",
           "radioItems": [
             {
               "value": "On by default",
@@ -173,7 +183,8 @@ ___TEMPLATE_PARAMETERS___
             }
           ],
           "simpleValueType": true,
-          "enablingConditions": []
+          "enablingConditions": [],
+          "help": "Region-specific defaults can be set in the next section."
         },
         "isUnique": false
       }
@@ -189,6 +200,208 @@ ___TEMPLATE_PARAMETERS___
     "newRowTitle": "Add Google Consent Mode Category",
     "alwaysInSummary": false,
     "help": "Add the GCM categories you will use and provide their default value and OneTrust category mapping."
+  },
+  {
+    "type": "PARAM_TABLE",
+    "name": "regionSpecificBehavior",
+    "displayName": "Region-Specific Default Consent Overrides",
+    "paramTableColumns": [
+      {
+        "param": {
+          "type": "TEXT",
+          "name": "region",
+          "displayName": "Region Code",
+          "simpleValueType": true,
+          "valueHint": "eg. us-ca, gb, fr",
+          "textAsList": false,
+          "help": "Enter region codes, separated by commas. (eg. us-ca, gb)",
+          "valueValidators": [
+            {
+              "type": "NON_EMPTY"
+            }
+          ]
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "analytics_storage",
+          "displayName": "analytics_storage",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "ad_storage",
+          "displayName": "ad_storage",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "functionality_storage",
+          "displayName": "functionality_storage",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "personalization_storage",
+          "displayName": "personalization_storage",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "security_storage",
+          "displayName": "security_storage",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "ad_user_data",
+          "displayName": "ad_user_data",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "ad_user_personalization",
+          "displayName": "ad_user_personalization",
+          "selectItems": [
+            {
+              "value": "On by default",
+              "displayValue": "On by default"
+            },
+            {
+              "value": "Off by default",
+              "displayValue": "Off by default"
+            },
+            {
+              "value": "Use global default",
+              "displayValue": "Use global default"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "Use global default"
+        },
+        "isUnique": false
+      }
+    ],
+    "newRowButtonText": "Add region-specific default",
+    "newRowTitle": "Add region-specific default",
+    "help": "If you would like to have different default consent rules per region, you can enter those defaults here. Any region that is not defined will automatically take the global default set in the previous section.",
+    "enablingConditions": [
+      {
+        "paramName": "useConsentMode",
+        "paramValue": true,
+        "type": "EQUALS"
+      }
+    ]
   }
 ]
 
@@ -204,6 +417,8 @@ const callInWindow = require('callInWindow');
 const copyFromWindow = require('copyFromWindow');
 const callLater = require('callLater');
 const setInWindow = require('setInWindow');
+const Object = require('Object');
+const getCookie = require('getCookieValues');
 const LOGTAG = "OT.CMP >";
 /*
 - - - - - - - - - - - - - 
@@ -226,10 +441,16 @@ Set GCM consent key settings defaults from inputs
 - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
-//Consent enum
+//Consent enums
 const CONSENT = {
       denied: 'denied',
       granted: 'granted'
+};
+
+const CONSENT_DEFAULT = {
+  denied:'Off by default',
+  granted: 'On by default',
+  global:'Use global default'
 };
 
 //Conditional block - only execute if the user wants to use GCM
@@ -237,17 +458,47 @@ if(data.useConsentMode){
   log(LOGTAG,"Setting up Google Consent Mode defaults.");
 
   let defaultGCMConsentState = {"wait_for_update": 500}; //set default wait
-  data.gcmMapping.forEach(record =>{
-    defaultGCMConsentState[record.gcmCategory] = record.defaultConsent == "On by default" ? CONSENT.granted : CONSENT.denied;
+  data.gcmMapping && data.gcmMapping.forEach(record =>{
+    defaultGCMConsentState[record.gcmCategory] = isConsented(record.defaultConsent == CONSENT_DEFAULT.granted);
   });
   
-  setDefaultConsentState(defaultGCMConsentState);
+  setDefaultConsentState(defaultGCMConsentState); //set global default consent
+  
+  //Region specific default consent
+  data.regionSpecificBehavior && data.regionSpecificBehavior.forEach(regionRule => {
+    let regionCodes = parseRegionString(regionRule.region);
+    let regionalDefault = {
+      "wait_for_update": 500,
+      "region":regionCodes
+    };
+    
+    Object.entries(regionRule).forEach(e => {
+      const key = e[0];
+      const value = e[1];
+      if(value != CONSENT_DEFAULT.global && key != "region"){ //if there is an override, add it as a regional default
+        regionalDefault[key] = isConsented(value == CONSENT_DEFAULT.granted);
+      }
+    });
+    setDefaultConsentState(regionalDefault);
+  });
+  
+  //Update with previous consent from OneTrust cookie if it already exists
+  
+  let consentCookie = getCookie("OptanonConsent") && getCookie("OptanonConsent")[0];
+  if(consentCookie){
+    let previousConsent = {};
+    data.gcmMapping.forEach( category => {
+      previousConsent[category.gcmCategory] = isCategoryConsentInCookie(consentCookie, category.oneTrustCatId);
+    });
+    updateConsentState(previousConsent);
+  }
+
   
   //Add callback to window so that GCM is updated when consent changes
   setInWindow("otEventListeners", [{event:"consent.changed", listener:updateConsent}], false);
   
 }else{
-  log(LOGTAG,"Not using Google Consent Mode. GCM Setup Skipped.");
+  log(LOGTAG, "Google Consent Mode not being used - setup skipped!");
 }
 
 /*
@@ -273,11 +524,32 @@ function updateConsent() {
       log(LOGTAG,"Skipping update for" + e.gcmCategory + "because a valid OneTrust ID was not provided in GTM.");
       return;
     }
-    updateData[e.gcmCategory] = consentArray.indexOf(e.oneTrustCatId) > -1 ? CONSENT.granted : CONSENT.denied;
+    updateData[e.gcmCategory] = isConsented(consentArray.indexOf(e.oneTrustCatId) > -1);
   });
   log(LOGTAG,"Updating Google Consent Mode", updateData);
   updateConsentState(updateData);
 }
+
+/*
+- - - - - - - 
+Helper Functions
+- - - - - - - 
+*/
+
+function isConsented(logicalTest){
+  return logicalTest ? CONSENT.granted : CONSENT.denied;
+}
+
+function isCategoryConsentInCookie(cookie,otCategoryId){
+  return isConsented(cookie.indexOf(otCategoryId + ":1") > -1);
+}
+
+function parseRegionString(regionString){
+  return regionString.split(",")
+                     .map(regCode => regCode.trim().toUpperCase()) //remove spaces, capitalize
+                     .filter(regCode=>regCode!=""); //remove blanks
+}
+
 /*
 - - - - - - - 
 Insert script
@@ -513,6 +785,68 @@ ___WEB_PERMISSIONS___
                     "boolean": true
                   }
                 ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "consentType"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "ad_user_data"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "consentType"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "ad_user_personalization"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
               }
             ]
           }
@@ -730,6 +1064,45 @@ ___WEB_PERMISSIONS___
                     "boolean": false
                   }
                 ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "gtag"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  }
+                ]
               }
             ]
           }
@@ -776,6 +1149,39 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "https://cdn-apac.onetrust.com/*"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "get_cookies",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "cookieAccess",
+          "value": {
+            "type": 1,
+            "string": "specific"
+          }
+        },
+        {
+          "key": "cookieNames",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 1,
+                "string": "OptanonConsent"
               }
             ]
           }
