@@ -147,8 +147,8 @@ ___TEMPLATE_PARAMETERS___
               "displayValue": "ad_user_data"
             },
             {
-              "value": "ad_user_personalization",
-              "displayValue": "ad_user_personalization"
+              "value": "ad_personalization",
+              "displayValue": "ad_personalization"
             }
           ],
           "simpleValueType": true
@@ -370,8 +370,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "param": {
           "type": "SELECT",
-          "name": "ad_user_personalization",
-          "displayName": "ad_user_personalization",
+          "name": "ad_personalization",
+          "displayName": "ad_personalization",
           "selectItems": [
             {
               "value": "On by default",
@@ -836,7 +836,7 @@ ___WEB_PERMISSIONS___
                 "mapValue": [
                   {
                     "type": 1,
-                    "string": "ad_user_personalization"
+                    "string": "ad_personalization"
                   },
                   {
                     "type": 8,
