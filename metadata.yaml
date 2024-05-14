@@ -15,6 +15,10 @@
 homepage: "https://www.onetrust.com/"
 documentation: "https://my.onetrust.com/s/article/UUID-d81787f6-685c-2262-36c3-5f1f3369e2a7"
 versions:
+  - sha: b6b7cd29af3a21a1f4f1cb1573ac00dd56fb45d4
+    changeNotes: Provided an option in template to fetch the language from the page.
+  - sha: 88b3c84574593dd8482211cfc974ecb8a1d38e0d
+    changeNotes: Updated metadata
   - sha: 612c33057fa5026823053d6c2e9f23dec058ec9f
     changeNotes: Updated ad_user_personalization field to ad_personalization
   - sha: f26ef45175534099ae0c5d19dca43c0ab4686074
