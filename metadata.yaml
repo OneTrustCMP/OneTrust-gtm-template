@@ -15,6 +15,8 @@
 homepage: "https://www.onetrust.com/"
 documentation: "https://my.onetrust.com/s/article/UUID-d81787f6-685c-2262-36c3-5f1f3369e2a7"
 versions:
+  - sha: f30c048fb0a4f6aa4889955f97a20b05addc591d
+    changeNotes: Added developer id.
   - sha: d88c4e9ca58c74a49c895d949ee10d7997ada809
     changeNotes: Provided an option in template to fetch the language from the page.
   - sha: 88b3c84574593dd8482211cfc974ecb8a1d38e0d
