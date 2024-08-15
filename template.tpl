@@ -425,6 +425,7 @@ const callLater = require('callLater');
 const setInWindow = require('setInWindow');
 const Object = require('Object');
 const getCookie = require('getCookieValues');
+const gtagSet = require('gtagSet');
 const LOGTAG = "OT.CMP >";
 /*
 - - - - - - - - - - - - - 
