@@ -445,6 +445,8 @@ const otData = {
 
 log(LOGTAG, 'Script Data to load', otData);
 
+gtagSet('developer_id.dYWJhMj', true);
+
 /*
 - - - - - - - - - - - - - - - - - - - - - - - - -
 Set GCM consent key settings defaults from inputs
