@@ -444,9 +444,9 @@ const otData = {
     stubURL: scriptURL
 };
 
-log(LOGTAG, 'Script Data to load', otData);
-
 gtagSet('developer_id.dYWJhMj', true);
+
+log(LOGTAG, 'Script Data to load', otData);
 
 /*
 - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1195,6 +1195,32 @@ ___WEB_PERMISSIONS___
               {
                 "type": 1,
                 "string": "OptanonConsent"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "write_data_layer",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "keyPatterns",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 1,
+                "string": "developer_id.dYWJhMj"
               }
             ]
           }
