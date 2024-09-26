@@ -96,6 +96,12 @@ ___TEMPLATE_PARAMETERS___
         "name": "DataDocumentLanguage",
         "checkboxText": "Determine the language from HTML page",
         "simpleValueType": true
+      },
+      {
+        "type": "TEXT",
+        "name": "CookiePolicy",
+        "displayName": "Cookie Policy Custom URL",
+        "simpleValueType": true
       }
     ],
     "help": "These settings can be found in the Scripts page of your OneTrust tenant."
@@ -437,6 +443,10 @@ let scriptURL = 'https://' + data.URL + '/scripttemplates/otSDKStub.js?did=' + d
 
 if (data.DataDocumentLanguage) {
     scriptURL += '&data-document-language=true';
+}
+
+if(data.CookiePolicy){
+      scriptURL += '&data-cookie-policy=' + data.CookiePolicy;
 }
 
 const otData = {
