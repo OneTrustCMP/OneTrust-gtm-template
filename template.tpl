@@ -102,6 +102,22 @@ ___TEMPLATE_PARAMETERS___
   },
   {
     "type": "RADIO",
+    "name": "useAutoBlock",
+    "displayName": "Do you want to use Auto-Blocking?",
+    "radioItems": [
+      {
+        "value": true,
+        "displayValue": "Yes"
+      },
+      {
+        "value": false,
+        "displayValue": "No"
+      }
+    ],
+    "simpleValueType": true
+  },
+  {
+    "type": "RADIO",
     "name": "useConsentMode",
     "displayName": "Do you want to use Google Consent Mode?",
     "radioItems": [
@@ -439,6 +455,8 @@ if (data.DataDocumentLanguage) {
     scriptURL += '&data-document-language=true';
 }
 
+let autoBlockURL = 'https://' + data.URL + '/consent/' + data.Domain + '/OtAutoBlock.js';
+
 const otData = {
     domainId: domain,
     stubURL: scriptURL
@@ -568,6 +586,16 @@ function parseRegionString(regionString){
 Insert script
 - - - - - - - 
 */
+
+
+if(data.useAutoBlock){
+  if (queryPermission('inject_script', autoBlockURL)) {
+      injectScript(autoBlockURL, data.gtmOnSuccess, data.gtmOnFailure);
+  } else {
+          data.gtmOnFailure();
+      log(LOGTAG,'OneTrust Auto-Block Script does not have permission to be injected.');
+  }
+}
 
 if (queryPermission('inject_script', scriptURL)) {
     injectScript(scriptURL, data.gtmOnSuccess, data.gtmOnFailure);
