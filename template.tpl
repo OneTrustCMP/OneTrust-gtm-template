@@ -129,7 +129,8 @@ ___TEMPLATE_PARAMETERS___
         "displayValue": "No"
       }
     ],
-    "simpleValueType": true
+    "simpleValueType": true,
+    "defaultValue": "No"
   },
   {
     "type": "RADIO",
